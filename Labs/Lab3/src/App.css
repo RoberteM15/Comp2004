@@ -1,0 +1,84 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* adding text color */
+#resort_title {
+  color: rgb(98, 98, 98);
+}
+
+/* putting some space between the listing 
+* and creating the border for the line between
+getting the text to the left side
+*/
+.Listing {
+  padding: 20px;
+  border-top: 5px solid gray;
+  text-align: left;
+}
+
+/* removing the extra space between country and image */
+#listingCountry{
+  margin: -5px 0px;
+}
+
+/* getting the top and bottom spacing
+* and the text color
+ */
+#listingLocation{
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: gray;
+}
+
+/* getting the top and bottom spacing */
+#starRating{
+  margin: 0px;
+  {rating}
+}
+
+#listingPrice {
+  margin: 0px;
+  color: gray;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  border-bottom: black 10px;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
