@@ -1,7 +1,7 @@
 //imported the Inventory card to format the container
 import InventoryCards from "./InventoryCards.jsx";
 //created a function to grab the information and send data to GroceriesApp to display the products.
-export default  function InventoryCardsContainer({products, addCart}) {
+export default function InventoryCardsContainer({products, addCart}) {
     return (
         //used the div to bring in the css for the inventory container
         <div className="Inventory-Container">

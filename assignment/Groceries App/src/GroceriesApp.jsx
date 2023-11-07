@@ -18,14 +18,14 @@ export default function GroceriesApp() {
             ...prevItems, {...item, id: crypto.randomUUID() },
         ]);
     }
-    //this should be the function that deletes the items from the cart one at a time.
-    //can't get it to work
-    function removeItem() {
-        return setItems((deletingItem) =>
-        deletingItem.filter((item) => item.id !== addCart.id))
-    }
-        
     
+    const removeItem = (id) => {
+        setItems((prevCart) => prevCart.filter((i) => i.id !== id));
+    };
+
+    const emptyCart = () => {
+        setItems(addCart.length = 0);
+    }
 
     return (
         //this div allows it to find the css to set up the inventory and cart next to each other
@@ -34,12 +34,8 @@ export default function GroceriesApp() {
         <InvetoryCardsContainer products = {products} addCart = {addCart}/> 
         {/* ternary operator to figure out if the cart is empty or not and also call the cart container to display the cart
         list */}
-        {(items.length === 0) ? <h2>Your Cart Is Empty!</h2> : <CartListContainer newCartArray = {items} removeItem = {removeItem}/>}
-        {/* Figure this button should look something like this but havn't had time to make it work */}
-        <span className="counter-button">
-        <button onClick={() => addCart.length = 0}>Empty Cart</button>
-        <button onClick={() => addCart.price}>Buy-Total: {addCart.price} </button>
-        </span>
+        {(items.length === 0) ? <h2>Your Cart Is Empty!</h2> : 
+        <CartListContainer newCartArray = {items} deleteItem = {removeItem} emptyCart = {emptyCart}/>}
         </div>
     )
 }
