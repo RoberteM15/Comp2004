@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-import {useForm} from "react-hook-form"
+import { useForm} from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 
 //created a function Inventory form to allow an product to be add to the inventory
 export default function InventoryForm({
@@ -22,12 +23,18 @@ export default function InventoryForm({
     
     useEffect(() => reset(formData), [toggleEdit])
 
+    const navigate = useNavigate()
+
+    const addProduct = () => {
+        navigate("/addProduct")
+    }
+
     return (
         <div>
             {/* created a form to add new products to the database and inventory */}
             <form action="" onSubmit={ handleSubmit(handleOnSubmit) }>
                 <div>
-                    <label htmlFor="productName">Product Name</label>
+                    {/* <label htmlFor="productName">Product Name</label>
                     <input
                         type="text"
                         {...register("productName", {required: "Please enter a valid product name. Thanks"})}
@@ -78,10 +85,10 @@ export default function InventoryForm({
                         id="price"
                         onChange={handleOnChange}
                         value={formData.price}
-                    />
+                    /> */}
                     <span>{errors.price?.message}</span>
                 </div>
-                <button>{toggleEdit ? `Edit ${formData.productName}` : "Add to Inventory"}</button>
+                <button onClick={addProduct}>Add to Inventory</button>
             </form>
         </div>
     )
