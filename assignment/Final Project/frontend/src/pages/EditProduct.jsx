@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import InventoryForm from "../InventoryForm";
-import { response } from "express";
+//import { response } from "express";
 
-const EditProduct = () => {
+//const EditProduct = () => {
+export default function EditProduct() {
    
        const [formData, setFormData] = useState({
         id: "",

@@ -69,7 +69,6 @@ export default function LoginUser() {
                 <p>Not a member yet? Click <a href="http://localhost:5173/register"> here </a> to join.</p>
 
                 {<p>{postResponse}</p>}
-                {<p>{Cookies.get("jwt-cookie")}</p>}
             </div>
         </div>
     )

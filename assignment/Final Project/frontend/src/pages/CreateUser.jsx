@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function CreateUser() {
     const [formData, setFormData] = useState ({
@@ -8,6 +9,8 @@ export default function CreateUser() {
     })
 
     const [postResponse, setPostResponse] = useState("")
+
+    const navigate = useNavigate()
 
     const handleOnChange = (evt) => {
         const {name, value} = evt.target
@@ -24,7 +27,7 @@ export default function CreateUser() {
         await axios
         .post("http://localhost:3000/register", postUser)
         .then((response) => setPostResponse(<p>{response.data}</p>))
-        
+        navigate("/")
     }
 
     const postUser = async (evt) => {
@@ -50,7 +53,7 @@ export default function CreateUser() {
                     <button>Submit</button>
                 </form>
 
-                <p>Existing member? click <a href="http://localhost:5173/login"> here </a> to login</p>
+                <p>Existing member? click <a href="http://localhost:5173"> here </a> to login</p>
 
                 {postResponse}
             </div>
